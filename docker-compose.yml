@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?Définissez ADMIN_TOKEN dans un fichier .env}
+    volumes:
+      - je-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  je-data:

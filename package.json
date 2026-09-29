@@ -1,0 +1,21 @@
+{
+  "name": "jeffrey-events",
+  "version": "1.0.0",
+  "description": "Plateforme d’inscription aux événements JEFFREY EVENTS : API Node.js/Express, front JavaScript, analyse Python",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --no-warnings --env-file-if-exists=.env src/server.js",
+    "dev": "node --no-warnings --env-file-if-exists=.env --watch src/server.js",
+    "seed": "node --no-warnings scripts/seed.js",
+    "test": "node --no-warnings --test tests/*.test.js",
+    "report": "python3 analytics/report.py"
+  },
+  "author": "Jeffrey Gandhi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.3"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

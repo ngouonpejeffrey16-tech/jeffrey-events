@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JEFFREY EVENTS — Inscriptions</title>
+  <meta name="description" content="Inscrivez-vous aux prochains événements JEFFREY EVENTS." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="/">JEFFREY<span>EVENTS</span></a>
+      <nav>
+        <a href="#evenements">Événements</a>
+        <a href="#billet">Mon billet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Les soirées qu'on <em>n'oublie pas.</em></h1>
+      <p>Soirées, afterworks et tournois à Bordeaux et alentours. Réservez votre place en 30 secondes et recevez votre billet immédiatement.</p>
+    </section>
+
+    <section id="evenements">
+      <div id="events-status" class="muted">Chargement des événements…</div>
+      <div id="events" class="grid"></div>
+    </section>
+
+    <section id="billet" class="section">
+      <h2>Retrouver ou annuler mon billet</h2>
+      <form id="ticket-form" class="inline-form">
+        <input id="ticket-code" placeholder="Code du billet (ex. JE-ABCD2345)" required autocomplete="off" />
+        <button class="btn secondary" type="submit">Rechercher</button>
+      </form>
+      <div id="ticket-result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© JEFFREY EVENTS — Vos données ne sont utilisées que pour la gestion de votre inscription.</div>
+  </footer>
+
+  <dialog id="register-dialog">
+    <form id="register-form" novalidate>
+      <h2 id="register-title">Inscription</h2>
+      <p id="register-sub" class="muted"></p>
+      <div id="register-alert"></div>
+      <div class="row">
+        <label>Prénom<input name="firstName" autocomplete="given-name" required /></label>
+        <label>Nom<input name="lastName" autocomplete="family-name" required /></label>
+      </div>
+      <label>E-mail<input name="email" type="email" autocomplete="email" required /></label>
+      <label>Téléphone (facultatif)<input name="phone" type="tel" autocomplete="tel" /></label>
+      <div class="row">
+        <label>Comment nous avez-vous connus ?
+          <select name="source">
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="bouche-a-oreille">Bouche-à-oreille</option>
+            <option value="site-web">Site web</option>
+            <option value="autre" selected>Autre</option>
+          </select>
+        </label>
+        <label>Code partenaire (facultatif)<input name="partnerCode" autocomplete="off" /></label>
+      </div>
+      <label class="check"><input type="checkbox" name="consent" required />
+        <span>J'accepte que mes données soient utilisées pour gérer mon inscription à cet événement.</span></label>
+      <div class="actions">
+        <button type="button" class="btn secondary" id="register-cancel">Annuler</button>
+        <button type="submit" class="btn" id="register-submit">Valider mon inscription</button>
+      </div>
+    </form>
+    <div id="register-done" class="hidden"></div>
+  </dialog>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

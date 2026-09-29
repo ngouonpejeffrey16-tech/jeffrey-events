@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>JEFFREY EVENTS — Espace organisateur</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <a class="logo" href="/">JEFFREY<span>EVENTS</span> <span class="muted" style="font-weight:500">· organisateur</span></a>
+      <nav><a href="/">Site public</a><a href="#" id="logout" class="hidden">Déconnexion</a></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Connexion -->
+    <section id="login" class="hero">
+      <h1>Espace <em>organisateur</em></h1>
+      <form id="login-form" class="inline-form" style="max-width:520px;margin-top:20px">
+        <input id="token" type="password" placeholder="Jeton administrateur" required autocomplete="current-password" />
+        <button class="btn" type="submit">Se connecter</button>
+      </form>
+      <div id="login-alert"></div>
+    </section>
+
+    <!-- Tableau de bord -->
+    <section id="dashboard" class="hidden" style="padding:24px 0 56px">
+      <div class="kpis" id="kpis"></div>
+
+      <div class="panel">
+        <h2>Événements</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Événement</th><th>Date</th><th class="num">Confirmés</th><th class="num">Attente</th><th class="num">Remplissage</th><th class="num">Entrées</th><th class="num">CA estimé</th><th></th></tr></thead>
+          <tbody id="events-body"></tbody>
+        </table></div>
+      </div>
+
+      <div class="panel-grid">
+        <div class="panel">
+          <h2>Canaux d'acquisition</h2>
+          <div id="sources"></div>
+        </div>
+        <div class="panel">
+          <h2>Partenaires &amp; influenceurs</h2>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Partenaire</th><th>Plateforme</th><th>Code</th><th class="num">Inscrits</th></tr></thead>
+            <tbody id="partners-body"></tbody>
+          </table></div>
+          <form id="partner-form" style="margin-top:14px">
+            <div class="row">
+              <label>Nom<input name="name" required /></label>
+              <label>Plateforme<select name="platform"><option>instagram</option><option>tiktok</option><option>youtube</option><option>autre</option></select></label>
+            </div>
+            <label>Code de parrainage<input name="code" required placeholder="EX: LEA10" /></label>
+            <div id="partner-alert"></div>
+            <div class="actions"><button class="btn secondary" type="submit">Ajouter le partenaire</button></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="regs-panel">
+        <h2 id="regs-title">Inscriptions</h2>
+        <form id="checkin-form" class="inline-form" style="margin-bottom:14px">
+          <input id="checkin-code" placeholder="Scanner / saisir un code billet pour valider l'entrée" autocomplete="off" />
+          <button class="btn" type="submit">Valider l'entrée</button>
+          <button class="btn secondary" type="button" id="export-csv">Exporter en CSV</button>
+        </form>
+        <div id="checkin-alert"></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Billet</th><th>Nom</th><th>E-mail</th><th>Source</th><th>Statut</th><th>Entrée</th></tr></thead>
+          <tbody id="regs-body"></tbody>
+        </table></div>
+      </div>
+
+      <div class="panel">
+        <h2>Créer un événement</h2>
+        <form id="event-form">
+          <label>Titre<input name="title" required /></label>
+          <label>Description<textarea name="description" rows="3"></textarea></label>
+          <div class="row">
+            <label>Lieu<input name="venue" required /></label>
+            <label>Ville<input name="city" required /></label>
+          </div>
+          <div class="row">
+            <label>Date et heure<input name="startsAt" type="datetime-local" required /></label>
+            <label>Capacité<input name="capacity" type="number" min="1" required /></label>
+          </div>
+          <div class="row">
+            <label>Prix (€)<input name="priceEur" type="number" min="0" step="0.5" value="0" /></label>
+            <label class="check" style="margin-top:28px"><input type="checkbox" name="published" checked /> <span>Publier immédiatement</span></label>
+          </div>
+          <div id="event-alert"></div>
+          <div class="actions"><button class="btn" type="submit">Créer l'événement</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
